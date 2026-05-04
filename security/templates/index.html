@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="az" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kriptoqrafik Parol Təhlükəsizliyi | Sərbəst İş</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0b0f1a; overflow-x: hidden; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-5px);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .accordion-open .accordion-content {
+            max-height: 1200px; /* Məzmun artdığı üçün artırıldı */
+        }
+        .code-block {
+            background: #05070a;
+            border-left: 4px solid #3b82f6;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .float-lab {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        #comparison-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        #comparison-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="text-slate-300">
+
+  <!-- Cyber Navbar Start -->
+  <nav class="w-full border-b border-white/5 bg-black/20 backdrop-blur-md sticky top-0 z-[1000]">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+          <!-- Logo -->
+          <a href="/" class="flex items-center gap-2 group">
+              <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-black group-hover:rotate-12 transition-transform shadow-[0_0_15px_rgba(37,99,235,0.4)]">C</div>
+              <span class="font-black tracking-tighter text-xl italic uppercase">Cyber<span class="text-blue-500 text-sm">Guard</span></span>
+          </a>
+
+          <!-- Menu Links -->
+          <div class="flex items-center gap-1 bg-white/5 p-1 rounded-2xl border border-white/5">
+              <a href="/lab/" class="px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 hover:text-blue-400 transition-all">
+                  🔬 Lab
+              </a>
+              <a href="/strength/" class="px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 hover:text-blue-400 transition-all">
+                  🛡️ Güc Ölçən
+              </a>
+              <a href="/rainbow/" class="px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 hover:text-blue-400 transition-all">
+                  🌈 Rainbow Game
+              </a>
+          </div>
+
+          <!-- System Status -->
+          <div class="hidden md:flex items-center gap-2">
+              <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_8px_#10b981]"></span>
+              <span class="text-[10px] font-mono text-emerald-500/80 uppercase tracking-widest">System Online</span>
+          </div>
+      </div>
+  </nav>
+  <!-- Cyber Navbar End -->
+
+    <!-- 🚀 EKRA BOYU HƏRƏKƏT EDƏN LABORATORİYA DÜYMƏSİ -->
+    <div class="fixed right-6 bottom-10 z-[100] float-lab">
+        <a href="/try/" class="flex items-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-6 py-4 rounded-2xl font-bold shadow-2xl shadow-blue-600/40 transition-all border border-blue-400/20 group">
+            <span class="hidden md:block">Sınaqdan Keçirt</span>
+            <span class="text-xl group-hover:scale-125 transition-transform">🚀</span>
+        </a>
+    </div>
+
+    <!-- 🌟 HEADER / HERO -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" 
+                 class="w-full h-full object-cover opacity-30" alt="Cyber Security">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#0f172a]"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6" data-aos="zoom-in">
+            <div class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wide text-blue-400 uppercase bg-blue-400/10 rounded-full border border-blue-400/20">
+                Kriptoqrafiya Tədrisi v2.0
+            </div>
+            🔐
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
+                 Parol Təhlükəsizliyi
+            </h1>
+            <p class="mb-10 max-w-2xl mx-auto text-lg text-slate-400 leading-relaxed italic">
+                "İnkişaf etmiş bir sistemdə parollar saxlanmır, sadəcə doğrulanır."
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/try/" class="bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-xl font-bold transition-all transform hover:scale-105 shadow-lg shadow-blue-600/20">
+                    Sınaqdan Keçirt 🚀
+                </a>
+                <button onclick="document.getElementById('info-section').scrollIntoView();" class="bg-slate-800 hover:bg-slate-700 text-white px-10 py-4 rounded-xl font-bold transition-all border border-slate-700">
+                    Məlumat Al
+                </button>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <svg class="w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 📚 INFO SECTION -->
+    <main id="info-section" class="py-20 px-6 max-w-5xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-white mb-4">Texnoloji Analiz</h2>
+            <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="space-y-8">
+            <!-- 1. PLAIN TEXT -->
+            <article class="glass-card p-8 rounded-3xl cursor-pointer" onclick="toggle(this)" data-aos="fade-up">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-6">
+                        <div class="w-14 h-14 flex items-center justify-center bg-red-500/20 text-red-500 rounded-2xl">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white uppercase tracking-wider">01. Plain Text</h2>
+                            <p class="text-red-400 text-sm font-medium italic">Səviyyə: Sıfır Müdafiə</p>
+                        </div>
+                    </div>
+                    <span class="chevron transition-transform duration-300 text-slate-500">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="mt-8 space-y-6 text-slate-400 border-t border-white/5 pt-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-red-500/5 p-4 rounded-xl border border-red-500/10">
+                                <h4 class="text-red-500 font-bold mb-1">Zəif Tərəfi:</h4>
+                                <p class="text-sm">Bazada sızma baş verdiyi an bütün parollar hər kəs tərəfindən oxuna bilər.</p>
+                            </div>
+                            <div class="bg-blue-500/5 p-4 rounded-xl border border-blue-500/10">
+                                <h4 class="text-blue-500 font-bold mb-1">Nümunə:</h4>
+                                <p class="text-sm">İstifadəçi "admin123" parolu ilə daxil olur və bazada eynilə belə saxlanılır.</p>
+                            </div>
+                        </div>
+                        <div class="code-block p-4 rounded-lg text-sm text-red-400">
+                            // INPUT: [user: "ali", pass: "123456"] ----> DATABASE: [user: "ali", pass: "123456"]
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2. HASHING -->
+            <article class="glass-card p-8 rounded-3xl cursor-pointer" onclick="toggle(this)" data-aos="fade-up">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-6">
+                        <div class="w-14 h-14 flex items-center justify-center bg-yellow-500/20 text-yellow-500 rounded-2xl">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white uppercase tracking-wider">02. Hashing</h2>
+                            <p class="text-yellow-400 text-sm font-medium italic">Səviyyə: Orta Müdafiə</p>
+                        </div>
+                    </div>
+                    <span class="chevron transition-transform duration-300 text-slate-500">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="mt-8 space-y-6 text-slate-400 border-t border-white/5 pt-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-blue-500/5 p-4 rounded-xl border border-blue-500/10">
+                                <h4 class="text-blue-400 font-bold mb-1">Güclü Tərəfi:</h4>
+                                <p class="text-sm">Parollar birbaşa oxunmur, geri qaytarılması qeyri-mümkündür.</p>
+                            </div>
+                            <div class="bg-red-500/5 p-4 rounded-xl border border-red-500/10">
+                                <h4 class="text-red-400 font-bold mb-1">Zəif Tərəfi:</h4>
+                                <p class="text-sm">Rainbow Tables (hazır siyahılar) vasitəsilə sürətlə qırıla bilər.</p>
+                            </div>
+    
+                        </div>
+                        <div class="code-block p-4 rounded-lg text-sm text-yellow-500 bg-yellow-500/5 border border-yellow-500/10 font-mono">
+                            // INPUT: [pass: "123456"] ----> DATABASE: [hash: "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"]
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3. SALTING -->
+            <article class="glass-card p-8 rounded-3xl cursor-pointer border-l-4 border-blue-500" onclick="toggle(this)" data-aos="fade-up">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-6">
+                        <div class="w-14 h-14 flex items-center justify-center bg-blue-500/20 text-blue-500 rounded-2xl">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white uppercase tracking-wider">03. Salting</h2>
+                            <p class="text-blue-400 text-sm font-medium italic">Səviyyə: Yüksək Müdafiə</p>
+                        </div>
+                    </div>
+                    <span class="chevron transition-transform duration-300 text-slate-500">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="mt-8 space-y-6 text-slate-400 border-t border-white/5 pt-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-blue-500/5 p-4 rounded-xl border border-blue-500/10">
+                                <h4 class="text-blue-400 font-bold mb-1">Güclü Tərəfi:</h4>
+                                <p class="text-sm">Eyni parolu olan istifadəçilərin bazada hash kodları fərqli olur.</p>
+                            </div>
+                            <div class="bg-blue-500/5 p-4 rounded-xl border border-blue-500/10">
+                                <h4 class="text-blue-400 font-bold mb-1">İşləmə Məntiqi:</h4>
+                                <p class="text-sm">Parolun sonuna "xG9!p" kimi unikal təsadüfi simvollar əlavə edilir.</p>
+                            </div>
+
+                        </div>
+                        <div class="code-block p-4 rounded-lg text-sm text-blue-400 bg-blue-500/5 border border-blue-500/10 font-mono">
+                            // INPUT: [pass: "123456"] + [salt: "xG9!p"] ----> DATABASE: [hash: "e7cf4... (unikal nəticə)"]
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 4. BCRYPT -->
+            <article class="glass-card p-8 rounded-3xl cursor-pointer" onclick="toggle(this)" data-aos="fade-up">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-6">
+                        <div class="w-14 h-14 flex items-center justify-center bg-green-500/20 text-green-500 rounded-2xl">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04c0 4.833 1.637 9.338 4.392 12.944a11.942 11.942 0 007.458 4.456 11.942 11.942 0 007.458-4.456A11.952 11.952 0 0020.618 7.984z"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white uppercase tracking-wider">04. Bcrypt</h2>
+                            <p class="text-green-400 text-sm font-medium italic">Səviyyə: Ən Müasir Seçim</p>
+                        </div>
+                    </div>
+                    <span class="chevron transition-transform duration-300 text-slate-500">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="mt-8 space-y-6 text-slate-400 border-t border-white/5 pt-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-green-500/5 p-4 rounded-xl border border-green-500/10">
+                                <h4 class="text-green-400 font-bold mb-1">Güclü Tərəfi:</h4>
+                                <p class="text-sm">Brute-force (məcburi sınma) hücumlarını yavaşladan adaptiv "cost" faktoruna malikdir.</p>
+                            </div>
+                            <div class="bg-blue-500/5 p-4 rounded-xl border border-blue-500/10">
+                                <h4 class="text-blue-400 font-bold mb-1">Nümunə:</h4>
+                                <p class="text-sm">Parolu yoxlamaq üçün 0.3 saniyə vaxt tələb edərək kütləvi hücumları qeyri-mümkün edir.</p>
+                            </div>
+                        </div>
+                        <div class="code-block p-4 rounded-lg text-sm text-green-400 bg-green-500/5 border border-green-500/10 font-mono">
+                            // INPUT: [pass: "123456"] ----> DATABASE: [hash: "$2y$12$K.rD5c.S... (duz daxilində, adaptiv)"]
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- 📊 MÜQAYİSƏ CƏDVƏLİ -->
+        <section id="comparison-section" class="mt-32">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-2">Metodların Müqayisəsi</h2>
+                <p class="text-slate-500">Texniki göstəricilərin qarşılaşdırılması</p>
+            </div>
+            
+            <div class="overflow-x-auto glass-card rounded-3xl border border-white/10 shadow-2xl">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-white/5 text-blue-400 border-b border-white/10 uppercase text-xs tracking-widest">
+                            <th class="p-6">Metodologiya</th>
+                            <th class="p-6">Sürət</th>
+                            <th class="p-6">Hücum Müqaviməti</th>
+                            <th class="p-6">Tövsiyə</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5">
+                        <tr class="hover:bg-white/[0.02] transition-colors">
+                            <td class="p-6 font-semibold text-white">Plain Text</td>
+                            <td class="p-6 text-slate-400">Anlıq</td>
+                            <td class="p-6 text-red-500">Yoxdur</td>
+                            <td class="p-6"><span class="px-3 py-1 bg-red-500/10 text-red-500 rounded-full text-[10px] font-bold">İSTİFADƏ ETMƏ</span></td>
+                        </tr>
+                        <tr class="hover:bg-white/[0.02] transition-colors">
+                            <td class="p-6 font-semibold text-white">MD5 / SHA-1</td>
+                            <td class="p-6 text-slate-400">&lt; 1ms</td>
+                            <td class="p-6 text-yellow-500">Zəif</td>
+                            <td class="p-6"><span class="px-3 py-1 bg-yellow-500/10 text-yellow-500 rounded-full text-[10px] font-bold">TƏHLÜKƏLİ</span></td>
+                        </tr>
+                        <tr class="hover:bg-white/[0.02] transition-colors">
+                            <td class="p-6 font-semibold text-white">SHA-256 + Salt</td>
+                            <td class="p-6 text-slate-400">&lt; 1ms</td>
+                            <td class="p-6 text-blue-400">Orta</td>
+                            <td class="p-6"><span class="px-3 py-1 bg-blue-500/10 text-blue-500 rounded-full text-[10px] font-bold">MƏQSƏDƏUYĞUN</span></td>
+                        </tr>
+                        <tr class="hover:bg-white/[0.02] transition-colors">
+                            <td class="p-6 font-semibold text-white">Bcrypt / Argon2</td>
+                            <td class="p-6 text-slate-400">~300ms</td>
+                            <td class="p-6 text-green-500">Yüksək</td>
+                            <td class="p-6"><span class="px-3 py-1 bg-green-500/10 text-green-500 rounded-full text-[10px] font-bold">PROFESSIONAL</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-10 text-center border-t border-white/5 opacity-50 text-xs">
+        <p>&copy; 2026 Azərbaycan Kiber Təhlükəsizlik Mərkəzi - Şifrələrin təhlükəsizliyi haqqında sərbəst iş</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        window.addEventListener('scroll', function() {
+            const section = document.getElementById('comparison-section');
+            if(!section) return;
+            const scrollPos = window.scrollY + window.innerHeight;
+            const sectionPos = section.offsetTop + 100;
+
+            if (scrollPos > sectionPos) {
+                section.classList.add('visible');
+            } else {
+                section.classList.remove('visible');
+            }
+        });
+
+        function toggle(el) {
+            const isOpen = el.classList.contains('accordion-open');
+            
+            // Bütün digərlərini bağla
+            document.querySelectorAll('article').forEach(item => {
+                item.classList.remove('accordion-open');
+                const chevron = item.querySelector('.chevron');
+                if(chevron) chevron.style.transform = 'rotate(0deg)';
+            });
+
+            // Kliklənəni aç (əgər əvvəl bağlı idisə)
+            if (!isOpen) {
+                el.classList.add('accordion-open');
+                const currentChevron = el.querySelector('.chevron');
+                if(currentChevron) currentChevron.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>

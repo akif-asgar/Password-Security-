@@ -1,0 +1,26 @@
+# Python keş faylları
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual mühit (Virtual Environment)
+venv/
+env/
+ENV/
+.env
+
+# Django spesifik fayllar
+db.sqlite3
+media/
+staticfiles/
+.vscode/
+.idea/
+
+# Əməliyyat sistemi faylları
+.DS_Store
+Thumbs.db
+
+# Kiber laboratoriya üçün xüsusi (əgər böyük lüğət faylları istifadə edirsənsə)
+*.log
+*.wordlist
+common_passwords.txt

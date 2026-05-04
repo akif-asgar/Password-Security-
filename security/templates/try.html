@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Təhlükəsizlik Laboratoriyası | Sınaq Paneli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); 
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .input-style {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .input-style:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+            outline: none;
+        }
+        .result-box {
+            animation: slideUp 0.4s ease-out;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 min-h-screen flex flex-col"> <!-- flex-col navbarı yuxarıda saxlayır -->
+
+    <!-- Cyber Navbar Start -->
+    <nav class="w-full border-b border-white/5 bg-black/20 backdrop-blur-md sticky top-0 z-[1000]">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-black group-hover:rotate-12 transition-transform shadow-[0_0_15px_rgba(37,99,235,0.4)]">C</div>
+                <span class="font-black tracking-tighter text-xl italic uppercase">Cyber<span class="text-blue-500 text-sm">Guard</span></span>
+            </a>
+
+            <!-- Menu Links -->
+            <div class="flex items-center gap-1 bg-white/5 p-1 rounded-2xl border border-white/5">
+            
+                <a href="/lab/" class="px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest bg-white/10 text-blue-400 transition-all">
+                    🔬 Lab
+                </a>
+                <a href="/strength/" class="px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 hover:text-blue-400 transition-all">
+                    🛡️ Güc Ölçən
+                </a>
+                <a href="/rainbow/" class="px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 hover:text-blue-400 transition-all">
+                    🌈 Rainbow Game
+                </a>
+            </div>
+
+            <!-- System Status -->
+            <div class="hidden md:flex items-center gap-2">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_8px_#10b981]"></span>
+                <span class="text-[10px] font-mono text-emerald-500/80 uppercase tracking-widest">System Online</span>
+            </div>
+        </div>
+    </nav>
+    <!-- Cyber Navbar End -->
+
+    <!-- Main Content Area -->
+    <main class="flex-1 flex items-center justify-center p-6">
+        <div class="glass-panel p-8 rounded-3xl w-full max-w-lg shadow-2xl relative overflow-hidden">
+            <!-- Dekorativ element -->
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
+            
+            <div class="text-center mb-8">
+                <div class="inline-block p-3 bg-blue-500/10 rounded-2xl mb-4">
+                    <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-extrabold text-white tracking-tight">Security Lab</h1>
+                <p class="text-slate-400 text-sm mt-2">Kriptoqrafik metodları real vaxtda test edin</p>
+            </div>
+
+            <div class="space-y-5">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2 ml-1">Parol</label>
+                    <input id="password" type="text" placeholder="Məs: admin123" 
+                        class="w-full p-4 rounded-xl input-style text-white placeholder-slate-600 font-mono">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2 ml-1">Metod</label>
+                    <div class="relative">
+                        <select id="method" class="w-full p-4 rounded-xl input-style text-white appearance-none cursor-pointer">
+                            <option value="plain">📄 Plain Text (Müdafiəsiz)</option>
+                            <option value="sha256">⚡ SHA256 (Hashing)</option>
+                            <option value="salted">🧂 Salted Hash (Duzlanmış)</option>
+                            <option value="bcrypt">🛡️ Bcrypt (Adaptiv)</option>
+                        </select>
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none opacity-50">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="sendData()" 
+                    class="w-full bg-blue-600 hover:bg-blue-500 text-white p-4 rounded-xl font-bold shadow-lg shadow-blue-600/20 transition-all active:scale-[0.98] mt-2">
+                    Generasiya Et 🚀
+                </button>
+
+                <a href="/" class="block text-center text-sm text-slate-500 hover:text-blue-400 transition-colors">
+                    ← Ana səhifəyə qayıt
+                </a>
+            </div>
+
+            <!-- NƏTİCƏ PANELI -->
+            <div id="result" class="mt-8 result-box hidden">
+                <div class="bg-black/40 border border-white/5 rounded-2xl p-5 relative">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold text-blue-400 uppercase tracking-tighter" id="res-method-name">METOD</span>
+                        <span class="text-[10px] bg-green-500/10 text-green-500 px-2 py-0.5 rounded uppercase">Uğurlu</span>
+                    </div>
+                    
+                    <div id="salt-area" class="hidden mb-4">
+                        <label class="block text-[10px] text-slate-500 mb-1 uppercase tracking-widest">Salt (Duz):</label>
+                        <div class="bg-slate-800/50 p-3 rounded-lg text-xs font-mono break-all border border-white/5" id="res-salt"></div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] text-slate-500 mb-1 uppercase tracking-widest">Nəticə (Hash):</label>
+                        <div class="bg-slate-800/50 p-3 rounded-lg text-xs font-mono break-all border border-white/5 text-blue-300 shadow-inner" id="res-hash"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ... sendData funksiyası eyni qalır ...
+    function sendData() {
+        const password = document.getElementById("password").value;
+        const method = document.getElementById("method").value;
+
+        if(!password){
+            alert("Zəhmət olmasa parol daxil edin!");
+            return;
+        }
+
+        fetch("/api/process-password/", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({password, method})
+        })
+        .then(res => res.json())
+        .then(data => {
+            const div = document.getElementById("result");
+            const resMethod = document.getElementById("res-method-name");
+            const resSalt = document.getElementById("res-salt");
+            const resHash = document.getElementById("res-hash");
+            const saltArea = document.getElementById("salt-area");
+
+            resMethod.innerText = data.method;
+            if(data.result.salt) {
+                resSalt.innerText = data.result.salt;
+                saltArea.classList.remove("hidden");
+            } else {
+                saltArea.classList.add("hidden");
+            }
+            resHash.innerText = data.result.hash || data.result.stored;
+            div.classList.remove("hidden");
+        })
+        .catch(err => {
+            console.error("Xəta:", err);
+            alert("Serverlə əlaqə kəsildi.");
+        });
+    }
+    </script>
+</body>
+</html>
